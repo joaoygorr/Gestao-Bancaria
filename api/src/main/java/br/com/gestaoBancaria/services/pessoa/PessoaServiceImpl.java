@@ -5,7 +5,6 @@ import br.com.gestaoBancaria.configuration.execptions.Exception404;
 import br.com.gestaoBancaria.configuration.execptions.Exception409;
 import br.com.gestaoBancaria.mapper.MovimentacaoMapper;
 import br.com.gestaoBancaria.mapper.PessoaMapper;
-import br.com.gestaoBancaria.modules.Movimentacao;
 import br.com.gestaoBancaria.modules.Pessoa;
 import br.com.gestaoBancaria.records.conta.ContaComMovimentacao;
 import br.com.gestaoBancaria.records.movimentacao.MovimentacaoRecord;
