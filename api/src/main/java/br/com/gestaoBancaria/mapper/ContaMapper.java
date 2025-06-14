@@ -4,7 +4,6 @@ import br.com.gestaoBancaria.modules.Conta;
 import br.com.gestaoBancaria.modules.Pessoa;
 import br.com.gestaoBancaria.records.conta.ContaDetailsRecord;
 import br.com.gestaoBancaria.records.conta.ContaRecord;
-import br.com.gestaoBancaria.records.pessoa.PessoaRecord;
 import br.com.gestaoBancaria.repositories.PessoaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.mapstruct.Mapper;

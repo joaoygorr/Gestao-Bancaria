@@ -3,7 +3,6 @@ package br.com.gestaoBancaria.controllers;
 import br.com.gestaoBancaria.mapper.ContaMapper;
 import br.com.gestaoBancaria.records.conta.ContaDetailsRecord;
 import br.com.gestaoBancaria.records.conta.ContaRecord;
-import br.com.gestaoBancaria.records.pessoa.PessoaRecord;
 import br.com.gestaoBancaria.services.conta.ContaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
