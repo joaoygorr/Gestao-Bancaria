@@ -114,5 +114,4 @@ public class PessoaServiceImpl implements PessoaService {
                 ))
                 .toList();
     }
-
 }
