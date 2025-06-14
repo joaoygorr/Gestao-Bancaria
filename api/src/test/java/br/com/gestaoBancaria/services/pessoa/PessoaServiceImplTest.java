@@ -26,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -83,9 +82,7 @@ class PessoaServiceImplTest {
 
         when(pessoaRepository.save(input)).thenThrow(new DataIntegrityViolationException("CPF duplicado"));
 
-        Exception409 exception = assertThrows(Exception409.class, () -> {
-            pessoaService.createPerson(input);
-        });
+        Exception409 exception = assertThrows(Exception409.class, () -> pessoaService.createPerson(input));
 
         assertEquals("CPF já cadastrado", exception.getMessage());
 
