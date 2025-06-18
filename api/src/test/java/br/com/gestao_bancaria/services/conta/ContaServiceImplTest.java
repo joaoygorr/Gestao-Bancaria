@@ -42,7 +42,7 @@ class ContaServiceImplTest {
     private MovimentacaoRepository movimentacaoRepository;
 
     @Test
-    @DisplayName("Should account a person and return the saved entity")
+    @DisplayName("Should create an account for a person and return the saved entity")
     void shouldCreateConta() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
@@ -62,7 +62,7 @@ class ContaServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should throw Exception409 when number is already registered")
+    @DisplayName("Should throw Exception409 when account number is already registered")
     void shouldThrowException409OnCpfDuplicate() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
@@ -77,7 +77,7 @@ class ContaServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should return a list of persons when accounts exist")
+    @DisplayName("Should return a list of accounts when accounts exist")
     void shouldReturnAllAccounts() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
 
@@ -103,7 +103,7 @@ class ContaServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should return the account when the ID exists")
+    @DisplayName("Should return the account when ID exists")
     void shouldReturnAccountById() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
@@ -121,7 +121,7 @@ class ContaServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should account person by ID")
+    @DisplayName("Should delete the account by ID")
     void shouldDeleteAccountById() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
@@ -133,7 +133,7 @@ class ContaServiceImplTest {
     }
 
     @Test
-    @DisplayName("Should throw exception when deleting account with linked movimentation")
+    @DisplayName("Should throw Exception400 when deleting account with linked movimentation")
     void shouldThrowExceptionWhenDeletingAccountWithLinkedMovimentation() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
@@ -150,9 +150,8 @@ class ContaServiceImplTest {
         verify(this.contaRepository, never()).deleteById(anyLong());
     }
 
-
     @Test
-    @DisplayName("Should update account by ID")
+    @DisplayName("Should update the account when ID exists")
     void shouldUpdateAccountById() {
         Pessoa person = new Pessoa(1L, "name", "12345678900", "address");
         Conta input = new Conta(1L, person, "12345");
