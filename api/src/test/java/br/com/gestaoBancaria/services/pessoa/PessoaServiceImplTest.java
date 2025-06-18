@@ -80,9 +80,9 @@ class PessoaServiceImplTest {
     void shouldThrowException409OnCpfDuplicate() {
         Pessoa input = new Pessoa(1L, "name", "12345678900", "address");
 
-        when(pessoaRepository.save(input)).thenThrow(new DataIntegrityViolationException("CPF duplicado"));
+        when(this.pessoaRepository.save(input)).thenThrow(new DataIntegrityViolationException("CPF duplicado"));
 
-        Exception409 exception = assertThrows(Exception409.class, () -> pessoaService.createPerson(input));
+        Exception409 exception = assertThrows(Exception409.class, () -> this.pessoaService.createPerson(input));
 
         assertEquals("CPF já cadastrado", exception.getMessage());
 

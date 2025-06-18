@@ -62,12 +62,8 @@ public class ContaServiceImpl implements ContaService {
     @Transactional
     @Override
     public Conta updateAccount(Long id, ContaRecord dto) {
-        try {
-            Conta entity = findById(id);
-            this.contaMapper.updateConta(dto, entity);
-            return entity;
-        } catch (DataIntegrityViolationException ex) {
-            throw new Exception409("Conta já cadastrada");
-        }
+        Conta entity = findById(id);
+        this.contaMapper.updateConta(dto, entity);
+        return entity;
     }
 }
