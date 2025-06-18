@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-]
+
 @Service
 @RequiredArgsConstructor
 public class MovimentacaoServiceImpl implements MovimentacaoService {
@@ -22,7 +22,7 @@ public class MovimentacaoServiceImpl implements MovimentacaoService {
 
         BigDecimal novoSaldo = calcularNovoSaldo(entity, saldoAtual);
         entity.setTotalValor(novoSaldo);
-        return movimentacaoRepository.save(entity);
+        return this.movimentacaoRepository.save(entity);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MovimentacaoServiceImpl implements MovimentacaoService {
 
     @Override
     public BigDecimal calcularSaldo(Long pessoaId, Long contaId) {
-        List<Movimentacao> movimentacoes = movimentacaoRepository.findAllByPessoaIdAndContaId(pessoaId, contaId);
+        List<Movimentacao> movimentacoes = this.movimentacaoRepository.findAllByPessoaIdAndContaId(pessoaId, contaId);
 
         BigDecimal depositos = movimentacoes.stream()
                 .filter(m -> m.getTipo() == TipoMovimentacao.DEPOSITAR)
