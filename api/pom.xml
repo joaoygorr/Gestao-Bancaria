@@ -11,7 +11,7 @@
 	<groupId>br.com.gestaoBancaria</groupId>
 	<artifactId>gestaoBancaria</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gestaoBancaria</name>
+	<name>gestao_bancaria</name>
 	<description>Gestão Bancaria</description>
 	<url/>
 	<licenses>
