@@ -75,7 +75,7 @@ cd prova-java-junior-00933-2025-027.007.911-42
 
 3. **Acesse o frontend**:
 
-   [http://localhost:3000](http://localhost:3000)
+   [http://localhost:3000/pessoa](http://localhost:3000/pessoa)
 
 ---
 
@@ -90,7 +90,7 @@ docker-compose up --build
 Os serviços serão iniciados:
 
 - Backend: [http://localhost:8080/api](http://localhost:8080/api)
-- Frontend: [http://localhost:3000](http://localhost:3000)
+- Frontend: [http://localhost:3000/pessoa](http://localhost:3000/pessoa)
 
 ---
 
