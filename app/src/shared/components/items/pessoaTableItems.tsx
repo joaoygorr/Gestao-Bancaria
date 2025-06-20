@@ -39,7 +39,17 @@ export default function PessoaTableItem({ item, onEdit, setPessoa }: Props) {
 
   return (
     <TableRow hover>
-      <TableCell>{item.nome}</TableCell>
+      <TableCell
+        style={{
+          maxWidth: 200,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}
+        title={item.nome}
+      >
+        {item.nome}
+      </TableCell>
       <TableCell>{MaskCpf(item.cpf)}</TableCell>
       <TableCell>{item.endereco}</TableCell>
 
