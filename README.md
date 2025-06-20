@@ -31,10 +31,10 @@ cd prova-java-junior-00933-2025-027.007.911-42
 
 ### 📦 Backend (Spring Boot)
 
-1. **Suba o banco de dados** (na pasta `/api`):
+1. **Suba o banco de dados** (na pasta raiz):
 
    ```bash
-   docker-compose up -d
+   docker-compose up -d gestaoBancaria_db
    ```
 
 2. **Compile o projeto** (ainda dentro de `/api`):
