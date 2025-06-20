@@ -4,7 +4,7 @@ const createPessoaFormSchema = z.object({
     id: z.string().or(z.number()).optional(),
     nome: z.string()
         .trim()
-        .max(256, "O nome deve ter no mínimo 256 caracteres"),
+        .max(255, "O nome deve ter no mínimo 256 caracteres"),
     cpf: z
         .string()
         .trim()
@@ -32,7 +32,7 @@ const createPessoaFormSchema = z.object({
     endereco: z
         .string()
         .trim()
-        .max(256, "O endereço deve ter no mínimo 256 caracteres")
+        .max(255, "O endereço deve ter no mínimo 256 caracteres")
 
 });
 
