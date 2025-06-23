@@ -33,7 +33,7 @@ const createPessoaFormSchema = z.object({
     endereco: z
         .string()
         .trim()
-        .nonempty("Nome em branco")
+        .nonempty("Endereço em branco")
         .max(255, "O endereço deve ter no mínimo 256 caracteres")
 
 });
