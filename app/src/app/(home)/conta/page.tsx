@@ -7,6 +7,7 @@ import { contaFormData, pessoaFormData } from "@/shared/schemas/types/types";
 import MaskCpf from "@/shared/utils/maskCpf";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
+  Autocomplete,
   Box,
   FormControl,
   FormHelperText,
@@ -95,17 +96,6 @@ export default function Page() {
     }
   };
 
-  const ITEM_HEIGHT = 90;
-  const ITEM_PADDING_TOP = 8;
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-      },
-    },
-  };
-
   return (
     <div className="w-full max-w-2xl">
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
@@ -117,43 +107,41 @@ export default function Page() {
         className="space-y-4 flex flex-col self-center gap-4 bg-white shadow-lg rounded-xl p-8"
         onSubmit={handleSubmit(contaEdit ? handleEditConta : saveAccount)}
       >
-        <FormControl>
-          <Controller
-            name="idPessoa"
-            control={control}
-            render={({ field }) => (
-              <FormControl>
-                <FormLabel htmlFor="pessoaField">
-                  Pessoa<span className="text-red-500">*</span>
-                </FormLabel>
-                <Select
-                  id="pessoaField"
-                  variant="standard"
-                  fullWidth
-                  disabled={loading}
-                  displayEmpty
-                  MenuProps={MenuProps}
-                  error={!!errors.idPessoa}
-                  defaultValue={contaEdit?.idPessoa}
-                  {...field}
-                  value={field.value || ""}
-                >
-                  <MenuItem value="" disabled>
-                    Selecione uma pessoa
-                  </MenuItem>
-                  {pessoa.map((pe) => (
-                    <MenuItem key={pe.id} value={String(pe.id)}>
-                      {`${pe.nome} - ${MaskCpf(pe.cpf)}`}
-                    </MenuItem>
-                  ))}
-                </Select>
-                {errors.idPessoa && (
-                  <FormHelperText>{errors.idPessoa.message}</FormHelperText>
+        <Controller
+          name="idPessoa"
+          control={control}
+          render={({ field }) => (
+            <FormControl fullWidth>
+              <FormLabel htmlFor="pessoaField">
+                Pessoa<span className="text-red-500">*</span>
+              </FormLabel>
+              <Autocomplete
+                id="pessoaField"
+                fullWidth
+                options={pessoa}
+                loading={loading}
+                getOptionLabel={(option) =>
+                  `${option.nome} - ${MaskCpf(option.cpf)}`
+                }
+                isOptionEqualToValue={(option, value) => option.id === value.id}
+                onChange={(_, value) => field.onChange(value?.id || "")}
+                value={
+                  pessoa.find((p) => String(p.id) === String(field.value)) ||
+                  null
+                }
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    variant="standard"
+                    error={!!errors.idPessoa}
+                    helperText={errors.idPessoa?.message}
+                    placeholder="Selecione uma pessoa"
+                  />
                 )}
-              </FormControl>
-            )}
-          />
-        </FormControl>
+              />
+            </FormControl>
+          )}
+        />
 
         <FormControl>
           <FormLabel htmlFor="numeroContaField">
