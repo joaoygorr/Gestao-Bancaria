@@ -13,9 +13,15 @@ type Props = {
   item: pessoaFormData;
   onEdit: (item: pessoaFormData) => void;
   setPessoa: React.Dispatch<React.SetStateAction<pessoaFormData[]>>;
+  length: number;
 };
 
-export default function PessoaTableItem({ item, onEdit, setPessoa }: Props) {
+export default function PessoaTableItem({
+  item,
+  onEdit,
+  setPessoa,
+  length,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   const handleDeletePessoa = async (id: string) => {
@@ -39,6 +45,7 @@ export default function PessoaTableItem({ item, onEdit, setPessoa }: Props) {
 
   return (
     <TableRow hover>
+      <TableCell>{length}</TableCell>
       <TableCell
         style={{
           maxWidth: 200,

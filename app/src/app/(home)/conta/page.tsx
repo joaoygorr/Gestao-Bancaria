@@ -95,6 +95,17 @@ export default function Page() {
     }
   };
 
+  const ITEM_HEIGHT = 90;
+  const ITEM_PADDING_TOP = 8;
+  const MenuProps = {
+    PaperProps: {
+      style: {
+        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        width: 250,
+      },
+    },
+  };
+
   return (
     <div className="w-full max-w-2xl">
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
@@ -121,6 +132,7 @@ export default function Page() {
                   fullWidth
                   disabled={loading}
                   displayEmpty
+                  MenuProps={MenuProps}
                   error={!!errors.idPessoa}
                   defaultValue={contaEdit?.idPessoa}
                   {...field}
