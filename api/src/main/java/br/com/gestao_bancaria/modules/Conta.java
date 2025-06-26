@@ -20,9 +20,10 @@ public class Conta {
     private Long id;
 
     @ManyToOne(optional = false)
+
     @JoinColumn(name = "id_pessoa", nullable = false)
     private Pessoa pessoa;
 
-    @Column(name = "numeroConta", nullable = false, unique = true)
+    @Column(name = "numeroConta", nullable = false, unique = true, length = 15)
     private String numeroConta;
 }
