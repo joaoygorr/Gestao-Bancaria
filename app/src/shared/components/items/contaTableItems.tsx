@@ -14,9 +14,15 @@ type Props = {
   item: IConta;
   onEdit: (item: contaFormData) => void;
   setConta: React.Dispatch<React.SetStateAction<IConta[]>>;
+  length: number;
 };
 
-export default function ContaTableItem({ item, onEdit, setConta }: Props) {
+export default function ContaTableItem({
+  item,
+  onEdit,
+  setConta,
+  length,
+}: Props) {
   const [open, setOpen] = useState(false);
 
   const handleDeleteConta = async (id: string) => {
@@ -37,6 +43,7 @@ export default function ContaTableItem({ item, onEdit, setConta }: Props) {
 
   return (
     <TableRow hover>
+      <TableCell>{length}</TableCell>
       <TableCell>{item.pessoa.nome}</TableCell>
       <TableCell>{MaskCpf(item.pessoa.cpf)}</TableCell>
       <TableCell>{item.numeroConta}</TableCell>

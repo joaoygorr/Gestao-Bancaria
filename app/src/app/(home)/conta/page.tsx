@@ -179,6 +179,7 @@ export default function Page() {
         <Table className="w-full max-w-4xl bg-white shadow-lg rounded-xl overflow-hidden">
           <TableHead>
             <TableRow>
+              <TableCell>#</TableCell>
               <TableCell>Nome</TableCell>
               <TableCell>CPF</TableCell>
               <TableCell>Número da Conta</TableCell>
@@ -187,8 +188,9 @@ export default function Page() {
           </TableHead>
 
           <TableBody>
-            {conta?.map((item) => (
+            {conta?.map((item, index) => (
               <ContaTableItem
+                length={++index}
                 key={item.id}
                 item={item}
                 setConta={setConta}

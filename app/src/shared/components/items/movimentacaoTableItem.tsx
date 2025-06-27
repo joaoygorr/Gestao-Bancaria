@@ -6,11 +6,13 @@ import { TableCell, TableRow } from "@mui/material";
 
 type Props = {
   item: IMovimentacao;
+  length: number;
 };
 
-export default function MovimentacaoTableItem({ item }: Props) {
+export default function MovimentacaoTableItem({ item, length }: Props) {
   return (
     <TableRow hover>
+      <TableCell>{length}</TableCell>
       <TableCell>{item.data.replace(",", " -")}</TableCell>
       <TableCell
         className={
