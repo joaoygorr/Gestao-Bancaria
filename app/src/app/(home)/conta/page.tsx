@@ -203,7 +203,7 @@ export default function Page() {
 
             {conta.length === 0 && (
               <TableRow>
-                <TableCell colSpan={4}>Nenhuma conta cadastrada</TableCell>
+                <TableCell colSpan={5}>Nenhuma conta cadastrada</TableCell>
               </TableRow>
             )}
           </TableBody>

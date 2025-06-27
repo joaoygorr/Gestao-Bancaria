@@ -282,7 +282,7 @@ export default function Page() {
 
             {movimentacoes.length === 0 && (
               <TableRow>
-                <TableCell colSpan={4}>
+                <TableCell colSpan={5}>
                   Nenhuma movimentação cadastrada
                 </TableCell>
               </TableRow>

@@ -224,7 +224,7 @@ export default function Page() {
 
             {pessoa.length === 0 && (
               <TableRow>
-                <TableCell colSpan={4}>Nenhuma pessoa cadastrada</TableCell>
+                <TableCell colSpan={5}>Nenhuma pessoa cadastrada</TableCell>
               </TableRow>
             )}
           </TableBody>
