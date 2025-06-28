@@ -121,7 +121,7 @@ export default function Page() {
                   `${option.nome} - ${MaskCpf(option.cpf)}`
                 }
                 isOptionEqualToValue={(option, value) => option.id === value.id}
-                onChange={(_, value) => field.onChange(value?.id || "")}
+                onChange={(_, value) => field.onChange(String(value?.id) || "")}
                 value={
                   pessoa.find((p) => String(p.id) === String(field.value)) ||
                   null
@@ -155,7 +155,7 @@ export default function Page() {
             helperText={errors.numeroConta?.message}
             {...register("numeroConta", {
               onChange: (e) => {
-                e.target.value = e.target.value.replace(/\D/g, "");
+                e.target.value = e.target.value.replace(/\D/g, "").slice(0, 15);
                 return e;
               },
             })}
