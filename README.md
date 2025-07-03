@@ -21,8 +21,8 @@ Antes de começar, você precisa ter instalado:
 ## 📥 Clonando o repositório
 
 ```bash
-git clone https://github.com/SENAI-SD/prova-java-junior-00933-2025-027.007.911-42
-cd prova-java-junior-00933-2025-027.007.911-42
+git clone https://github.com/joaoygorr/Gestao-Bancaria
+cd gestaoBancaria
 ```
 
 ---
